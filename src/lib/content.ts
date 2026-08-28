@@ -24,8 +24,8 @@ export const roleScene = {
     opening: { speaker: "user", text: "ภูมิ พี่อยากได้อันนี้อะ ระบบนี้" } as DialogueLine,
     accept: { speaker: "phum", text: "ได้ครับพี่" } as DialogueLine,
     exchange: [
-      { speaker: "user", text: "[TODO: รายละเอียดที่พี่อยากได้]" },
-      { speaker: "phum", text: "[TODO: ภูมิถามกลับ/ยืนยันความเข้าใจ]" },
+      { speaker: "user", text: "บลาๆๆ......" },
+      { speaker: "phum", text: "บลาๆๆ...... ครับ" },
     ] as DialogueLine[],
     closing: { speaker: "phum", text: "โอเคครับ เดี๋ยวถ้ามีอะไรเพิ่มเติมเดี๋ยวผมทักหาพี่นะ" } as DialogueLine,
     callResolution: { speaker: "phum", text: "เสร็จแล้วนะครับพี่ ลองใช้ได้เลยครับ" } as DialogueLine,
@@ -60,6 +60,8 @@ export type WorkItem = {
 };
 
 export type LabAgent = { name: string; status: "live" | "developing" | "restricted"; photo?: string };
+
+export type LabFutureIdea = { name: string; note: string };
 
 export const workItems: WorkItem[] = [
   {
@@ -171,6 +173,17 @@ export const workItems: WorkItem[] = [
       { name: "ทดสอบคุยกับลูกค้าใน Academy", status: "live", photo: "/lab-agent-roleplay.png" },
       { name: "[TODO: ชื่อ agent ที่กำลังพัฒนา]", status: "restricted" },
     ],
+  },
+];
+
+export const labFutureIdeas: LabFutureIdea[] = [
+  { name: "AI Sale Admin", note: "ผู้ช่วย admin ตอบแชทและแนะนำลูกค้าแบบอัตโนมัติ" },
+  { name: "AI กรอกออเดอร์อัตโนมัติ", note: "กรอกออเดอร์เข้า CRM ให้อัตโนมัติ ลดเวลาแอดมิน" },
+  { name: "AI Wind Tunnel", note: "จำลองบทสนทนาก่อนใช้จริง เพื่อดูว่าสคริปต์ไหนปิดการขายได้ดีที่สุด" },
+  { name: "AI Spy", note: "คอยส่องและสรุปรายงานคู่แข่ง เช่นคอนเทนต์และความเคลื่อนไหว" },
+  {
+    name: "Ghost Resurrection Agent",
+    note: "เก็บวิธีคิดและวิธีทำงานของพนักงานไว้ในตัว agent เผื่อวันที่คนคนนั้นลาออก mindset และวิธีการทำงานก็ยังอยู่ และฉลาดขึ้นเรื่อยๆ ทุกวัน",
   },
 ];
 
@@ -382,7 +395,7 @@ export const goals = {
   peak: "มีชีวิตและอิสรภาพเป็นของตัวเอง สามารถเลี้ยงดูคนที่รักและตัวเองได้ ทั้งเรื่องการเงินและอิสรภาพ — นี่คือสิ่งที่ภูมิอยากไปให้ถึงในช่วงพีคที่สุดของชีวิต",
   milestones: [
     "ให้แม่เลิกทำงานได้สักที",
-    "มีกิจการเป็นของตัวเอง",
+    "เก่งด้าน AI Engineering แบบ Master",
     "เป็น top of mind ของลูกค้าหลายๆ คน",
     "มีความ unique ในสายงาน developer",
     "เข้ามหาวิทยาลัย MIT ที่อเมริกา",

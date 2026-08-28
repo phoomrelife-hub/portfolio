@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Mascot, type MascotMotion, type EyeState } from "@/components/three/mascot";
 import { LabAgentRack, LabConsole } from "@/components/sections/lab-agents";
-import { workItems, futureProjects } from "@/lib/content";
+import { workItems, futureProjects, labFutureIdeas } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const MASCOT_PX = 96;
@@ -361,6 +361,7 @@ function WorkDossier({
                       agents={item.labAgents}
                       instant={instant}
                       delay={base + step * 5 + 0.12}
+                      futureIdeas={labFutureIdeas}
                     />
                   </BuildBlock>
                 ) : (

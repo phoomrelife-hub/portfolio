@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import type { LabAgent } from "@/lib/content";
+import type { LabAgent, LabFutureIdea } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 type StatusStyle = {
@@ -334,10 +334,12 @@ export function LabAgentRack({
   agents,
   delay,
   instant,
+  futureIdeas,
 }: {
   agents: LabAgent[];
   delay: number;
   instant?: boolean;
+  futureIdeas?: LabFutureIdea[];
 }) {
   const reduceMotion = useReducedMotion();
   const reduce = Boolean(reduceMotion || instant);
@@ -368,13 +370,22 @@ export function LabAgentRack({
         ))}
       </ul>
 
-      <p className="mt-4 border-t border-dashed border-ink-line pt-3 text-xs leading-relaxed text-foreground-faint">
-        <span className="font-mono tracking-[0.18em] uppercase text-accent-soft/70">
-          ไอเดียในอนาคต
-        </span>
-        <br />
-        [TODO: ไอเดีย agent ที่อยากทำต่อ]
-      </p>
+      {futureIdeas && futureIdeas.length > 0 && (
+        <div className="mt-4 border-t border-dashed border-ink-line pt-3">
+          <span className="font-mono text-xs tracking-[0.18em] uppercase text-accent-soft/70">
+            ไอเดียในอนาคต
+          </span>
+          <ul className="mt-2 flex flex-col gap-2">
+            {futureIdeas.map((idea) => (
+              <li key={idea.name} className="text-xs leading-relaxed text-foreground-faint">
+                <span className="font-medium text-foreground-muted">{idea.name}</span>
+                {" — "}
+                {idea.note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <AnimatePresence>
         {preview && (
