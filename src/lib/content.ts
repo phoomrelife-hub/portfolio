@@ -51,6 +51,7 @@ export type WorkItem = {
   tech: string[];
   impact?: string;
   photo?: string;
+  photoOverlay?: string;
   trailer?: string;
   purpose?: string;
   problemBefore?: string;
@@ -148,6 +149,8 @@ export const workItems: WorkItem[] = [
   {
     title: "AI Agent Lab",
     role: "ออกแบบ + พัฒนา agent ภายในบริษัท",
+    photo: "/ai-agent-lab-bg.png",
+    photoOverlay: "AI AGENT LAB",
     summary:
       "แล็บทดลอง AI agent ภายในบริษัท — แต่ละตัวถูกสร้างมาช่วยงานเฉพาะด้าน บางตัวใช้งานจริงแล้ว บางตัวยังอยู่ระหว่างพัฒนา",
     highlights: [

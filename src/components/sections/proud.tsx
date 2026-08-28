@@ -1,8 +1,51 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { proudItems } from "@/lib/content";
+
+// Auto-advancing slideshow for proud items with more than one photo — slides
+// in from the right, replacing the fanned-collage look with a clean cycling frame.
+function PhotoSlide({ photos, title }: { photos: string[]; title: string }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (photos.length < 2) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % photos.length), 2800);
+    return () => clearInterval(id);
+  }, [photos.length]);
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.img
+          key={photos[index]}
+          src={photos[index]}
+          alt={`${title} ${index + 1}`}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -40 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0 h-full w-full object-contain"
+        />
+      </AnimatePresence>
+      {photos.length > 1 && (
+        <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          {photos.map((src, i) => (
+            <span
+              key={src}
+              className={cn(
+                "h-1.5 w-1.5 rounded-full transition-colors",
+                i === index ? "bg-white" : "bg-white/40"
+              )}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Hand-placed layout: every item gets its own tilt, vertical drop and overlap so
 // the page reads as things taped into a notebook rather than cells in a grid.
@@ -165,28 +208,7 @@ export function Proud() {
                             className="h-full w-full object-contain"
                           />
                         ) : photos ? (
-                          <div className="relative flex h-full w-full items-center justify-center">
-                            {photos.map((src, pi) => {
-                              const fan = [
-                                { rotate: -6, x: "-14%", y: "6%", z: 10 },
-                                { rotate: 4, x: "13%", y: "-4%", z: 20 },
-                                { rotate: -2, x: "0%", y: "10%", z: 30 },
-                              ][pi % 3];
-                              return (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                  key={src}
-                                  src={src}
-                                  alt={`${item.title} ${pi + 1}`}
-                                  className="absolute h-[72%] w-[62%] rounded-[2px] border-2 border-white object-cover shadow-[0_6px_16px_-4px_rgba(0,0,0,0.5)]"
-                                  style={{
-                                    transform: `translate(${fan.x}, ${fan.y}) rotate(${fan.rotate}deg)`,
-                                    zIndex: fan.z,
-                                  }}
-                                />
-                              );
-                            })}
-                          </div>
+                          <PhotoSlide photos={photos} title={item.title} />
                         ) : (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img

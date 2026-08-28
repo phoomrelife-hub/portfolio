@@ -424,10 +424,19 @@ export function WorkDetail() {
               }`}
             >
               {(item.photo || item.trailer) && (
-                <div className="w-full md:w-1/2 aspect-video rounded-lg overflow-hidden bg-ink-line/40 border border-black/10 flex items-center justify-center grayscale contrast-125 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="relative w-full md:w-1/2 aspect-video rounded-lg overflow-hidden bg-ink-line/40 border border-black/10 flex items-center justify-center grayscale contrast-125 transition-transform duration-300 group-hover:scale-[1.02]">
                   {item.photo?.startsWith("/") ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={item.photo} alt={item.title} className="h-full w-full object-cover" />
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={item.photo} alt={item.title} className="h-full w-full object-cover" />
+                      {item.photoOverlay && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/45">
+                          <span className="px-4 text-center font-serif text-2xl md:text-4xl font-bold uppercase tracking-wide text-white">
+                            {item.photoOverlay}
+                          </span>
+                        </div>
+                      )}
+                    </>
                   ) : item.trailer ? (
                     <video
                       src={item.trailer}
