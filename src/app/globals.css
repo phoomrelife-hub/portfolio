@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #07080a;
+  --color-ink-soft: #101218;
+  --color-ink-line: rgba(245, 244, 242, 0.08);
+  --color-paper: #ffffff;
+  --color-paper-ink: #0a0a0a;
+  --color-foreground: #f5f4f2;
+  --color-foreground-muted: rgba(245, 244, 242, 0.6);
+  --color-foreground-faint: rgba(245, 244, 242, 0.35);
+  --color-accent: #e2795a;
+  --color-accent-soft: #f3a583;
+  --color-accent-glow: rgba(226, 121, 90, 0.35);
+  --color-diff-removed: #d98a86;
+  --color-diff-removed-bg: rgba(217, 138, 134, 0.08);
+  --color-diff-added: #8fc9a6;
+  --color-diff-added-bg: rgba(143, 201, 166, 0.08);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-line: var(--color-ink-line);
+  --color-paper: var(--color-paper);
+  --color-paper-ink: var(--color-paper-ink);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-muted: var(--color-foreground-muted);
+  --color-foreground-faint: var(--color-foreground-faint);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-accent-glow: var(--color-accent-glow);
+  --color-diff-removed: var(--color-diff-removed);
+  --color-diff-removed-bg: var(--color-diff-removed-bg);
+  --color-diff-added: var(--color-diff-added);
+  --color-diff-added-bg: var(--color-diff-added-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper-ink);
+}
+
+.glow-text {
+  text-shadow: 0 0 40px var(--color-accent-glow);
 }
