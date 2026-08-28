@@ -62,10 +62,6 @@ export function Strengths() {
                   <stop offset="0%" stopColor="var(--color-accent-soft)" stopOpacity="0.45" />
                   <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.12" />
                 </radialGradient>
-                <linearGradient id="radar-sweep" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0" />
-                  <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.28" />
-                </linearGradient>
                 <filter id="radar-glow" x="-40%" y="-40%" width="180%" height="180%">
                   <feGaussianBlur stdDeviation="8" />
                 </filter>
@@ -106,20 +102,6 @@ export function Strengths() {
                   />
                 );
               })}
-
-              {/* continuous radar sweep */}
-              <motion.g
-                style={{ transformOrigin: `${C}px ${C}px` }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
-              >
-                <path
-                  d={`M ${C} ${C} L ${C + R} ${C} A ${R} ${R} 0 0 0 ${C + R * Math.cos(-0.9)} ${
-                    C + R * Math.sin(-0.9)
-                  } Z`}
-                  fill="url(#radar-sweep)"
-                />
-              </motion.g>
 
               {/* plotted shape */}
               <motion.g
