@@ -115,7 +115,7 @@ export function Proposals() {
           className="flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start"
         >
           <SidebarBlock title="Reviewers">
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-base leading-relaxed text-foreground-muted">
               พี่ๆ ทุกฝ่ายใน Relife Solutions
             </p>
           </SidebarBlock>
@@ -134,14 +134,14 @@ export function Proposals() {
           </SidebarBlock>
 
           <SidebarBlock title="Checks">
-            <p className="flex items-start gap-2 text-sm leading-relaxed text-foreground-muted">
+            <p className="flex items-start gap-2 text-base leading-relaxed text-foreground-muted">
               <span aria-hidden className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-diff-added" />
               เขียนจากสิ่งที่เห็นจริงตลอด 4 เดือน
             </p>
           </SidebarBlock>
 
           <SidebarBlock title="Status">
-            <p className="text-sm leading-relaxed text-foreground-muted">
+            <p className="text-base leading-relaxed text-foreground-muted">
               รอพี่ๆ review — merge เมื่อไหร่ก็ได้ครับ
             </p>
           </SidebarBlock>

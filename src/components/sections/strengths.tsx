@@ -189,8 +189,8 @@ export function Strengths() {
               )}
             >
               <div className="flex items-baseline justify-between gap-3">
-                <span className="text-sm text-foreground">{axis.label}</span>
-                <span className="font-mono text-[10px] text-foreground-faint">{axis.labelEn}</span>
+                <span className="text-base text-foreground">{axis.label}</span>
+                <span className="font-mono text-xs text-foreground-faint">{axis.labelEn}</span>
               </div>
               <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-ink-line">
                 <motion.div
@@ -228,17 +228,17 @@ export function Strengths() {
               <h3 className="text-sm font-medium text-foreground">{axis.label}</h3>
               <span className="font-mono text-[10px] text-accent-soft">{axis.value}</span>
             </div>
-            <p className="mb-3 text-xs leading-relaxed text-foreground-faint">{axis.note}</p>
+            <p className="mb-3 text-sm leading-relaxed text-foreground-faint">{axis.note}</p>
 
             <ul className="flex flex-col gap-1.5">
               {axis.strengthRefs.map((ref) => (
-                <li key={`s${ref}`} className="flex gap-2 text-xs leading-relaxed text-foreground-muted">
+                <li key={`s${ref}`} className="flex gap-2 text-sm leading-relaxed text-foreground-muted">
                   <span className="shrink-0 text-accent">+</span>
                   <span>{strengths[ref]}</span>
                 </li>
               ))}
               {axis.gapRefs.map((ref) => (
-                <li key={`g${ref}`} className="flex gap-2 text-xs leading-relaxed text-foreground-muted">
+                <li key={`g${ref}`} className="flex gap-2 text-sm leading-relaxed text-foreground-muted">
                   <span className="shrink-0 text-amber-400/90">△</span>
                   <span>{gaps[ref]}</span>
                 </li>
@@ -248,7 +248,7 @@ export function Strengths() {
         ))}
 
         <div className="flex items-end xl:col-span-2">
-          <p className="text-xs leading-relaxed text-foreground-faint">
+          <p className="text-sm leading-relaxed text-foreground-faint">
             <span className="text-accent">+</span> คือสิ่งที่ทำได้ดี ·{" "}
             <span className="text-amber-400/90">△</span> คือสิ่งที่ยังต้องพัฒนา
             <br />

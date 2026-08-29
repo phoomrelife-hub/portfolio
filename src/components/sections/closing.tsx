@@ -5,6 +5,7 @@ import { motion, useInView, useReducedMotion, type Variants } from "framer-motio
 import { closing, profile } from "@/lib/content";
 import { ParticleField } from "@/components/three/particle-field";
 import { Mascot, type MascotMotion } from "@/components/three/mascot";
+import { MemoryReel } from "@/components/sections/memory-reel";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
@@ -112,7 +113,7 @@ export function Closing() {
 
       <div
         aria-hidden
-        className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden lg:block pointer-events-none"
+        className="absolute left-6 md:left-10 bottom-40 hidden lg:block pointer-events-none"
       >
         <span
           className="block whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.55em] text-foreground-faint"
@@ -122,9 +123,12 @@ export function Closing() {
         </span>
       </div>
 
+      {/* --- the reel: the internship replayed before the goodbye ----------- */}
+      <MemoryReel />
+
       {/* --- main composition ---------------------------------------------- */}
       <div
-        className="relative z-10 min-h-screen w-full px-6 md:px-16 lg:pl-28 lg:pr-24 pt-24 pb-28 md:pt-28 md:pb-32
+        className="relative z-10 min-h-[86vh] w-full px-6 md:px-16 lg:pl-28 lg:pr-24 pt-8 pb-28 md:pt-12 md:pb-32
                    grid items-center gap-10 lg:gap-16
                    grid-cols-1 lg:grid-cols-12"
       >

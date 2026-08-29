@@ -21,7 +21,7 @@ function DiffEntry({ item, index }: { item: MistakeLesson; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.3), ease: [0.16, 1, 0.3, 1] }}
-      className="rounded-2xl border border-ink-line bg-ink-soft/60 backdrop-blur-sm p-6 font-mono text-sm"
+      className="rounded-2xl border border-ink-line bg-ink-soft/60 backdrop-blur-sm p-6 font-mono text-sm md:text-base"
     >
       <p className="text-foreground-faint mb-3 truncate">
         <span className="text-accent-soft">commit_msg</span>: {item.commit}

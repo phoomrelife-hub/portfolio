@@ -377,7 +377,7 @@ export function LabAgentRack({
           </span>
           <ul className="mt-2 flex flex-col gap-2">
             {futureIdeas.map((idea) => (
-              <li key={idea.name} className="text-xs leading-relaxed text-foreground-faint">
+              <li key={idea.name} className="text-sm leading-relaxed text-foreground-faint">
                 <span className="font-medium text-foreground-muted">{idea.name}</span>
                 {" — "}
                 {idea.note}

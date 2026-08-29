@@ -93,8 +93,8 @@ function InfoCard({
       instant={instant}
       className="flex flex-col justify-center overflow-hidden rounded-xl border border-ink-line bg-ink-soft/60 p-5 md:p-6 lg:flex-1"
     >
-      <p className="text-[11px] tracking-[0.22em] uppercase text-accent-soft">{label}</p>
-      <div className="mt-2.5 text-sm md:text-base leading-relaxed text-foreground-muted">{body}</div>
+      <p className="text-xs tracking-[0.22em] uppercase text-accent-soft">{label}</p>
+      <div className="mt-2.5 text-base md:text-lg leading-relaxed text-foreground-muted">{body}</div>
     </BuildBlock>
   );
 }
@@ -291,7 +291,7 @@ function WorkDossier({
                   <h3 className="mt-2 font-serif text-4xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.92] tracking-tight text-foreground">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm tracking-wide uppercase text-foreground-faint">
+                  <p className="mt-3 text-sm md:text-base tracking-wide uppercase text-foreground-faint">
                     {item.role}
                   </p>
                 </BuildBlock>
@@ -466,7 +466,7 @@ export function WorkDetail() {
                 <h3 className="font-serif text-4xl md:text-6xl font-bold leading-[0.95] tracking-tight text-foreground uppercase group-hover:text-accent-soft transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm tracking-wide text-foreground-faint uppercase">
+                <p className="mt-2 text-sm md:text-base tracking-wide text-foreground-faint uppercase">
                   {item.role}
                 </p>
               </div>

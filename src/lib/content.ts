@@ -220,10 +220,10 @@ export const proudItems: ProudItem[] = [
     video: "/telesales-leaderboard-demo.mp4",
   },
   {
-    title: "Warroom-dashboard",
+    title: "ระบบ Recruit",
     description:
-      "อีกโปรเจกต์แยกที่ใช้หลักการเดียวกัน ให้ Admin เห็นยอดขายของตัวเองและของคนอื่นแบบ real-time ทำให้ supervisor จี้จุดได้ว่าวันนี้ควรทำได้เท่าไร ควรทำได้ดีกว่านี้มั้ย",
-    photo: "/warroom-leaderboard.png",
+      "ระบบแรกที่ภูมิทำ ภูมิใจมากๆ ที่มีคนเชื่อใจให้เอาไปใช้งานจริง แล้วได้ feedback ที่ดีกลับมาจริงๆ",
+    photo: "/work-recruit.jpg",
   },
 ];
 
@@ -452,3 +452,78 @@ export const closing = {
   subtext:
     "ขอบคุณ Relife Solutions ที่เปิดโอกาสให้เด็กอายุ 18 ที่เพิ่งจบ ม.6 คนนี้ด้วยใจจริง ทุกคนใจดีกับภูมิมากจริงๆ ทั้งที่ตอนแรกภูมิมีแค่ไฟ ยังไม่รู้เลยว่าจะทำได้ไหม แต่พี่ๆ ก็ยังเชื่อใจภูมิมาตลอด ขอบคุณทุกคนมากจริงๆ ครับ ถ้าไม่มีพี่ๆ คงไม่มีภูมิในวันนี้",
 };
+
+// Photo story shown on the closing page as a walkthrough reel, not a plain
+// gallery. Ordered as a narrative, not strict upload date — ภูมิ's own dividing
+// line is hair colour ("ผมทอง" era first, "ผมดำ" era after), so `era` marks
+// which side of that line a beat falls on. `photos` can hold more than one
+// image when several screenshots make up a single story beat (e.g. the n8n
+// build). Fill in each `[TODO: <original filename>]` with the real file once
+// it's copied into /public — the placeholder names the exact Drive file so
+// wiring it up is a straight find-and-replace.
+export type MemoryBeat = {
+  photos?: string[];
+  video?: string;
+  caption: string;
+  era: "blonde" | "black" | "bonus";
+};
+
+export const memoryReel: MemoryBeat[] = [
+  { photos: ["/memories/3.jpg"], caption: "มาทำงานวันแรก", era: "blonde" },
+  {
+    photos: [
+      "/memories/5.png",
+      "/memories/6.png",
+      "/memories/7.png",
+      "/memories/8.png",
+      "/memories/10.png",
+      "/memories/11.png",
+    ],
+    caption: "AI ตัวแรกที่ทำ (n8n)",
+    era: "blonde",
+  },
+  { photos: ["/memories/4.png"], caption: "บทเรียนที่พี่อิทให้มาเรียนเพิ่ม", era: "blonde" },
+  { photos: ["/memories/12.jpg"], caption: "บทเรียน OpenClaw ของพี่ต๊ะ", era: "blonde" },
+  { photos: ["/memories/IMG_4659.png"], caption: "OpenClaw ตัวแรก", era: "blonde" },
+  { photos: ["/memories/IMG_A80D898B.jpeg"], caption: "present OpenClaw ให้พี่ๆ ฟัง", era: "blonde" },
+  {
+    photos: ["/memories/IMG_4604.jpg"],
+    caption: "เรียนพื้นฐานเว็บให้แน่น — HTML, CSS, JS, Docker, SQL",
+    era: "blonde",
+  },
+  { photos: ["/memories/IMG_4656.jpg"], caption: "AI agent ตัวใหม่ตอนนั้น: Hermes", era: "blonde" },
+  { photos: ["/memories/IMG_4664.png"], caption: "AI agent สำหรับส่งสลิป", era: "blonde" },
+  { photos: ["/memories/13.jpg"], caption: "ถ่ายรูปเพราะอยากจัดออฟฟิศใหม่", era: "blonde" },
+  { photos: ["/memories/IMG_4758.png"], caption: "Dashboard ของ Telesales เวอร์ชันแรก", era: "blonde" },
+  { photos: ["/memories/IMG_4759.jpg"], caption: "Makro มาส่งของ!", era: "blonde" },
+  { photos: ["/memories/14.jpg"], caption: "กินเลี้ยงกับพี่เทเลเซลล์ กินเยอะมาก", era: "blonde" },
+  {
+    photos: ["/memories/IMG_4961.jpg", "/memories/IMG_4962.jpg"],
+    caption: "ไปคุยงานนอกออฟฟิศกับพี่อิท",
+    era: "blonde",
+  },
+  { photos: ["/memories/15.jpg"], caption: "แอบถ่ายรูปตอนเที่ยง", era: "blonde" },
+
+  // The turning point — this is the beat the era switches on.
+  { photos: ["/memories/IMG_5016.jpg"], caption: "ผมดำแล้ว!!", era: "black" },
+
+  { photos: ["/memories/IMG_5225.jpg"], caption: "ผลงาน Dashboard Telesales v2 ขึ้นจอของจริง", era: "black" },
+  { photos: ["/memories/IMG_5226.jpg"], caption: "self-study เรียนรู้เอง", era: "black" },
+  { photos: ["/memories/IMG_5233.jpg"], caption: "NAS ครั้งแรก", era: "black" },
+  { photos: ["/memories/IMG_5294.jpg"], caption: "รอซื้อไอติมกัน", era: "black" },
+  { photos: ["/memories/IMG_5399.jpg"], caption: "เสนอ present ระบบของเทเลเซลล์ v1", era: "black" },
+  { video: "/memories/IMG_5479.mp4", caption: "สร้างทีม dev ของตัวเอง (พัง)", era: "black" },
+  { photos: ["/memories/IMG_5526.png"], caption: "โดนจนได้...", era: "black" },
+  { photos: ["/memories/IMG_5678.jpg"], caption: "self-study อีกแล้ว!!", era: "black" },
+  { photos: ["/memories/IMG_5679.png"], caption: "ทำงานทุกที่ ไม่เว้นแม้แต่ตอนอยู่ในห้องน้ำ", era: "black" },
+  { video: "/memories/IMG_5689.mp4", caption: "วันเกิดพี่นุชช", era: "black" },
+  { photos: ["/memories/IMG_5766.jpg"], caption: "คอมผมไม่ไหวแล้วครับ", era: "black" },
+
+  // Bonus — surfaced separately at the end of the reel, not part of the main
+  // chronological walkthrough.
+  {
+    photos: ["/memories/IMG_5801.png", "/memories/IMG_5802.png"],
+    caption: "bonus: คลิปที่ไม่มีใครเคยเห็น — คลิป AI ก่อนมาสัมภาษณ์",
+    era: "bonus",
+  },
+];

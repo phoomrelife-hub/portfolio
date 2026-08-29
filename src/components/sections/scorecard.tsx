@@ -178,7 +178,7 @@ export function Scorecard() {
                   </div>
                   {item.note && (
                     <motion.p
-                      className="mt-3 text-sm leading-relaxed text-foreground-muted"
+                      className="mt-3 text-base leading-relaxed text-foreground-muted"
                       animate={
                         revealed
                           ? { opacity: 1, filter: "blur(0px)" }

@@ -232,7 +232,7 @@ export function Proud() {
                       <p
                         className={cn(
                           "mt-1.5 leading-relaxed italic",
-                          hasMedia ? "text-xs text-[#1b1815]/60" : "text-sm text-[#1b1815]/70"
+                          hasMedia ? "text-sm text-[#1b1815]/60" : "text-base text-[#1b1815]/70"
                         )}
                       >
                         {item.description}
